@@ -1,0 +1,27 @@
+﻿@page
+@model Practica_ll.Pages.NominaModel
+@{
+    ViewData["Title"] = "Nomina page";
+}
+
+<h1>Nomina Empleados || Practica ll</h1>
+
+<ul>
+    @*@foreach (var item in Model.Nombres)
+    {
+        foreach (var item2 in Model.Apellidos)
+        {
+            <li>@item @item2</li>
+        }
+
+    }*@
+
+    @{int id = 0;
+        while (id < 5)
+        {
+            <li>@Model.Nombres[id] @Model.Apellidos[id] @Model.Salario[id]</li>
+            <li>@Model.SFS(Model.Salario[id]);</li>
+            id++;
+        }
+    }
+</ul>
