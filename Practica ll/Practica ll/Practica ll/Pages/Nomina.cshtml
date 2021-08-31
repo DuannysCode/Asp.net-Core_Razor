@@ -6,22 +6,38 @@
 
 <h1>Nomina Empleados || Practica ll</h1>
 
-<ul>
-    @*@foreach (var item in Model.Nombres)
-    {
-        foreach (var item2 in Model.Apellidos)
-        {
-            <li>@item @item2</li>
-        }
-
-    }*@
-
-    @{int id = 0;
-        while (id < 5)
-        {
-            <li>@Model.Nombres[id] @Model.Apellidos[id] @Model.Salario[id]</li>
-            <li>@Model.SFS(Model.Salario[id]);</li>
-            id++;
-        }
-    }
-</ul>
+<div>
+    <table class="table table-hover">
+        <thead class="thead-dark text-center"">
+            <tr>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>CARGO</th>
+                <th>SALARIO BRUTO</th>
+                <th>SFS</th>
+                <th>AFP</th>
+                <th>TOTAL TSS</th>
+                <th>ISR</th>
+                <th>TOTAL DESCUENTOS</th>
+                <th>SALRIO NETO</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var nomina in Model.Nominas)
+            {
+                <tr>
+                    <td>@nomina.Nombre</td>
+                    <td>@nomina.Apellido</td>
+                    <td>@nomina.Cargo</td>
+                    <td>RD$ @Math.Round(nomina.Sueldo_Bruto, 2)</td>
+                    <td>RD$ @nomina.SFS(nomina.Sueldo_Bruto)</td>
+                    <td>RD$ @nomina.AFP(nomina.Sueldo_Bruto)</td>
+                    <td>RD$ @nomina.Total_TSS(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto))</td>
+                    <td>RD$ @nomina.ISR(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.Sueldo_Bruto)</td>
+                    <td>RD$ @nomina.Total_Desc(nomina.Total_TSS(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto)), nomina.ISR(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.Sueldo_Bruto))</td>
+                    <td>RD$ @nomina.Sueldo_Neto(nomina.Sueldo_Bruto, nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.ISR(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.Sueldo_Bruto))</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
