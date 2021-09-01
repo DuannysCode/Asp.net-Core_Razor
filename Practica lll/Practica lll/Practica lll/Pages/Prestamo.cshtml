@@ -1,0 +1,53 @@
+﻿@page
+@model Practica_lll.Pages.PrestamoModel
+@{
+    ViewData["Title"] = "Prestamo Bancario";
+}
+
+<div class="text-left">
+    <h1 class="display-4">Amortizacion Prestamo || Practica lll</h1>
+</div>
+
+<form method="get">
+    <div class="text-xl-left form-group">
+        <label class="col-form-label-lg">
+            Monto del prestamo en RD$: </label">
+            <input class="form-control" autofocus type="text" name="monto" placeholder="Monto prestamo RD$" required />
+    </div>
+    <div class="text-xl-left form-group">
+        <label class="col-form-label-lg">
+            Cantidad de cuotas: </label">
+            <input class="form-control" type="text" name="cantidad_cuotas" placeholder="Cantidad de cuotas" required />
+    </div>
+    <div class="text-xl-left form-group">
+        <label class="col-form-label-lg">
+            Porcentaje de inetres anual %: </label">
+            <input class="form-control" type="text" name="interes_anual" placeholder="Interes anual %" required />
+    </div>
+    <div style="position: absolute; right: 0;" class="form-group">
+        <button type="submit" class="btn btn-success" name="calcular">CALCULAR</button>
+        <button type="reset" class="btn btn-secondary" name="limpiar">LIMPIAR</button>
+    </div>
+</form>
+<br />
+<br />
+<div class="text-center form-group">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Monto Prestado</th>
+                <th>Cuotas</th>
+                <th>Interes Anual</th>
+                <th>Cuota Mensual</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td><text>RD</text>@string.Format("{0:C2}", @Model.Monto_P)</td>
+                    <td>@Model.Cuotas_M</td>
+                    <td>@Model.Interes_A</td>
+                    <td><text>RD</text>@string.Format("{0:C2}", @Amortizacion.Cuotas_Mensuales(Model.Monto_P, Model.Cuotas_M, Model.Interes_A))</td>
+                </tr>
+        </tbody>
+    </table>
+</div>
