@@ -7,7 +7,7 @@
 <h1>Nomina Empleados || Practica ll</h1>
 
 <div>
-    <table class="table table-hover">
+    <table class="table table-striped table-bordered">
         <thead class="thead-dark text-center"">
             <tr>
                 <th>NOMBRE</th>
@@ -29,13 +29,13 @@
                     <td>@nomina.Nombre</td>
                     <td>@nomina.Apellido</td>
                     <td>@nomina.Cargo</td>
-                    <td>RD$ @Math.Round(nomina.Sueldo_Bruto, 2)</td>
-                    <td>RD$ @nomina.SFS(nomina.Sueldo_Bruto)</td>
-                    <td>RD$ @nomina.AFP(nomina.Sueldo_Bruto)</td>
-                    <td>RD$ @nomina.Total_TSS(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto))</td>
-                    <td>RD$ @nomina.ISR(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.Sueldo_Bruto)</td>
-                    <td>RD$ @nomina.Total_Desc(nomina.Total_TSS(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto)), nomina.ISR(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.Sueldo_Bruto))</td>
-                    <td>RD$ @nomina.Sueldo_Neto(nomina.Sueldo_Bruto, nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.ISR(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.Sueldo_Bruto))</td>
+                    <td><text>RD</text>@string.Format("{0:C2}", @Math.Round(nomina.Sueldo_Bruto, 2))</td>
+                    <td><text>RD</text>@string.Format("{0:C2}", @nomina.SFS(nomina.Sueldo_Bruto))</td>
+                    <td><text>RD</text>@string.Format("{0:C2}", @nomina.AFP(nomina.Sueldo_Bruto))</td>
+                    <td><text>RD</text>@string.Format("{0:C2}", @nomina.Total_TSS(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto)))</td>
+                    <td><text>RD</text>@string.Format("{0:C2}", @nomina.ISR(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.Sueldo_Bruto))</td>
+                    <td><text>RD</text>@string.Format("{0:C2}", @nomina.Total_Desc(nomina.Total_TSS(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto)), nomina.ISR(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.Sueldo_Bruto)))</td>
+                    <td><text>RD</text>@string.Format("{0:C2}", @nomina.Sueldo_Neto(nomina.Sueldo_Bruto, nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.ISR(nomina.SFS(nomina.Sueldo_Bruto), nomina.AFP(nomina.Sueldo_Bruto), nomina.Sueldo_Bruto)))</td>
                 </tr>
             }
         </tbody>
