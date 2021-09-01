@@ -12,6 +12,7 @@ namespace Practica_lll.Pages
         public double Monto_P { get; set; }
         public int Cuotas_M { get; set; }
         public double Interes_A { get; set; }
+        public string button { get; set; }
 
         public void OnGet(double monto, int cantidad_cuotas, double interes_anual)
         {
