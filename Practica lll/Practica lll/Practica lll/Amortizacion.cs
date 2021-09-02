@@ -17,7 +17,14 @@ namespace Practica_lll
             double monto_g = monto * interes;
             double cuotas_mensuales = (monto_g) / (1 - Math.Pow((1+interes), -cantidad_cuotas));
 
-            return Math.Round(cuotas_mensuales, 2);
+            if(cuotas_mensuales is double.NaN)
+            {
+                return 0.00;
+            }
+            else
+            {
+                return Math.Round(cuotas_mensuales, 2);
+            }
         }
     }
 }

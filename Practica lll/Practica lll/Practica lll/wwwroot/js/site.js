@@ -4,11 +4,12 @@
 // Write your JavaScript code.
 
 var hide = false;
-function toggleTable()
-{
-    if (hide == false)
-    {
+function toggleTable() {
+    if (hide == false) {
         hide = true;
-        document.getElementById('tabla_amortizacion').style.display = 'none';
+        document.getElementById('td_monto').innerHTML = "RD$0.00";
+        document.getElementById('td_cuotas').innerHTML = "0";
+        document.getElementById('td_interes').innerHTML = "0%";
+        document.getElementById('td_cuotasm').innerHTML = "RD$0.00";
     }
 }

@@ -25,14 +25,14 @@
             <input class="form-control" type="text" name="interes_anual" placeholder="Interes anual %" required />
     </div>
     <div style="position: absolute; right: 0;" class="form-group">
-        <button type="submit" class="btn btn-success" value="calcular">CALCULAR</button>
-        <button type="reset" class="btn btn-secondary" value="limpiar" onclick="toggleTable()">LIMPIAR</button>
+        <button type="submit" class="btn btn-success" value="calcular" >CALCULAR</button>
+        <button type="reset" class="btn btn-secondary" id="limpiar" onclick="toggleTable()" >LIMPIAR</button>
     </div>
 </form>
 <br />
 <br />
 <div class="text-center form-group">
-    <table class="table table-bordered table-hover" id="tabla_amortizacion">
+    <table class="table table-bordered table-hover">
         <thead class="thead-dark">
             <tr>
                 <th>Monto Prestado</th>
@@ -42,11 +42,11 @@
             </tr>
         </thead>
         <tbody>
-                <tr>
-                    <td><text>RD</text>@string.Format("{0:C2}", @Model.Monto_P)</td>
-                    <td>@Model.Cuotas_M</td>
-                    <td>@Model.Interes_A</td>
-                    <td><text>RD</text>@string.Format("{0:C2}", @Amortizacion.Cuotas_Mensuales(Model.Monto_P, Model.Cuotas_M, Model.Interes_A))</td>
+                <tr onload="toggleTable()">
+                    <td id="td_monto"><text>RD</text>@string.Format("{0:C2}", @Model.Monto_P)</td>
+                    <td id="td_cuotas">@Model.Cuotas_M</td>
+                    <td id="td_interes">@Model.Interes_A%</td>
+                    <td id="td_cuotasm"><text>RD</text>@string.Format("{0:C2}", @Amortizacion.Cuotas_Mensuales(Model.Monto_P, Model.Cuotas_M, Model.Interes_A))</td>
                 </tr>
         </tbody>
     </table>

@@ -1,9 +1,80 @@
 ﻿@page
 @model Practica_lll.Pages.CajeroModel
 @{
-    ViewData["Title"] = "Cajero Automatico";
+    ViewData["Title"] = "ATM ABC";
 }
 
 <div class="text-left">
-    <h1 class="display-4">Cajero Automatico Banco ABC || Practica lll</h1>
+    <h1 class="display-4">ATM Banco ABC || Practica lll</h1>
+</div>
+<br />
+<div class="text-center form-group">
+    <table class="table" style="display:inline-block">
+        <caption><b>(*) Billetes Disponibles</b></caption>
+        <thead class="thead-light">
+            <tr>
+                <th>
+                    RD$1,000 *
+                </th>
+                <th>
+                    RD$5000 *
+                </th>
+                <th>
+                    RD$100 *
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>9</td>
+                <td>19</td>
+                <td>99</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<form method="get">
+    <div class="text-xl-left form-group">
+        <label class="col-form-label-lg">
+            Seleccione su banco: </label">
+            <select id="drp_banco" name="drp_banco" class="form-control" required autofocus>
+                <option disabled selected value=""> -- seleccione una opcion -- </option>
+                <option value="abc">Banco ABC</option>
+                <option value="others">Otro banco</option>
+            </select>
+    </div>
+    <div class="text-xl-left form-group">
+        <label class="col-form-label-lg">
+            Monto a Retirar en RD$: </label">
+            <input class="form-control" type="text" name="interes_anual" placeholder="Monto a retirar RD$" required />
+    </div>
+    <div style="position: absolute; right: 0;" class="form-group">
+        <button type="submit" class="btn btn-success" value="retirar">RETIRAR</button>
+        <button type="reset" class="btn btn-secondary" id="cancelar">CANCELAR</button>
+    </div>
+</form>
+<br />
+<br />
+<div class="text-center form-group">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>No. Transaccion</th>
+                <th>Monto retirado</th>
+                <th>Billetes RD$1,000</th>
+                <th>Billetes RD$500</th>
+                <th>Billetes RD$100</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>TR#01</td>
+                <td><text>RD</text>@string.Format("{0:C2}", 10000)</td>
+                <td>9</td>
+                <td>2</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
